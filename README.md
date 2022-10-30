@@ -1,10 +1,10 @@
 # artesanal_investimentos
 Aplicação Angular , Spring Boot e PostgreSQL
 ## Ferramentas utilizadas
-Visual Studio Code
-intellij
-Angular
-PostgreSQL
+Visual Studio Code,
+intellij,
+Angular,
+PostgreSQL,
 Java 11
 ### Procedimentos
 Faça download das ferramentas acima, após isso crie um banco de dados no PostgreSQL, adicione um usuario com todas as permições de tabelas e bancos, 
