@@ -1,0 +1,64 @@
+<h1 class="mt-4">Postagens</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Consulta de Postagens</li>
+</ol>
+<div class="container">
+  <div class = "col-md-12">
+    <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
+        A postagem foi deletada com sucesso.
+    </div>
+</div>
+  <div class="row">
+    <div class="col-md-6">
+      <button routerLink="/postagens-form" class="btn btn-warning" (click)="novoCadastro()">
+        <i class="fa fa-plus"></i> Nova Postagem
+      </button>
+    </div>
+  </div>
+  <br>
+  <div class="row" *ngFor="let postagem of postagens">
+    <div class="card mb-6">
+      <div class="card-body">
+        <div class="media mb-3">
+          <img src="{{postagem.urlFoto}}" class="img-fluid" alt="Responsive image" width="900" height="700"
+            class="d-block ui-w-40" alt="">
+          <div class="media-body ml-3">
+            <div class="text-muted small">{{postagem.dataCadastro}}</div>
+          </div>
+        </div>
+
+        <h1>
+          {{postagem.texto}}
+        </h1>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="btn btn-primary" routerLink="/postagens-form/{{postagem.postagemId}}">
+              <i class="fa fa-edit"></i>
+            </button>
+          </div>
+          <div class="col-md-6"(click)="preparaDelecao(postagem)">
+            <button class="btn btn-danger" data-toggle="modal" data-target="#modalDelecao">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id ="modalDelecao" class="modal Fade" role="dialog" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Confirmação</h4>   
+            </div>
+            <div class="modal-body" *ngIf="postagemSelecionada">
+            Confirma a deleção da Postagem:<br> {{postagemSelecionada.texto}} ?
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-success"  data-dismiss="modal" (click)="deletarPostagemPorID()">Deletar</button>
+              <button class="btn btn-warning" data-dismiss="modal" >Cancelar</button>
+            </div>
+        </div>
+      </div>
+</div>

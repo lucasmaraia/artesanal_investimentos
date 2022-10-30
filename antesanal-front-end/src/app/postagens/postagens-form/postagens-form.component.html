@@ -1,0 +1,55 @@
+<h1 class="mt-4">Postagens</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">{{postagem.postagemId ? 'Edição' : 'Cadastro'}}</li>
+</ol>
+<div class="container">
+    <form #postagemForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class = "col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="sucesso == true">
+                A postagem foi salva/atualizado com sucesso.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>ID da Postagem:</label>
+                    <input disabled type="text" [(ngModel)]="postagem.postagemId" name = "postagemId" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Data Cadastro:</label>
+                    <input disabled type="text" [(ngModel)]="postagem.dataCadastro" name = "dataCadastro" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Data Atualização:</label>
+                    <input disabled type="text" name="texto" [(ngModel)]="postagem.dataAtualizacao" name = "dataAtualizacao" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Texto:</label>
+                    <input type="text" class="form-control" [(ngModel)]="postagem.texto" name = "texto" >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Url da Imagem:</label>
+                    <input type="text" [(ngModel)]="postagem.urlFoto" name = "urlFoto" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-success" >Enviar Postagem</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger" (click)="voltarParaPostagens()" >Voltar</button>
+            </div>
+        </div>
+    </form>
+</div>
